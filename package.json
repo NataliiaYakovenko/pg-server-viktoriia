@@ -1,0 +1,13 @@
+{
+  "name": "pg-server-viktoriia",
+  "version": "1.0.0",
+  "privete": true,
+  "scripts": {
+    "start": "node .",
+    "start-dev": "nodemon ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
