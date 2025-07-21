@@ -34,3 +34,70 @@ pool.query('SELECT CURRENT_DATE', (err, res) => {
   }
 })();
 
+// pool
+//   .query('SELECT * FROM users')
+//   .then((response) => console.log(response.rows))
+//   .catch((err) => console.log(err));
+
+//отримати користувача з id=1
+const id = 1;
+(async () => {
+  try {
+    const res = await pool.query(
+      `SELECT * 
+       FROM users
+       WHERE id = ${id}`
+    );
+    console.log(res.rows[0]);
+  } catch (err) {
+    console.log(err);
+  }
+})();
+
+(async () => {
+  try {
+    const res = await pool.query(
+      `SELECT * 
+       FROM users
+       WHERE id = $1`,
+      [id]
+    );
+    console.log(res.rows[0]);
+  } catch (err) {
+    console.log(err);
+  }
+})();
+
+const fn = 'Petro2';
+const ln = 'Petrenko2';
+(async () => {
+  try {
+    const res = await pool.query(
+      `SELECT * 
+       FROM users
+       WHERE first_name = $1 AND last_name = $2`,
+      [fn, ln]
+    );
+    console.log(res.rows);
+  } catch (err) {
+    console.log(err);
+  }
+})();
+
+//створити замовлення користувачу з id 1
+const user_id = 1;
+const created_at = '2023-05-03';
+(async () => {
+  try {
+    const order = await pool.query(
+      `INSERT INTO orders (user_id, created_at)
+      VALUES ($1, $2)
+      RETURNING *
+      `,
+      [user_id, created_at]
+    );
+    console.log(order.rows);
+  } catch (err) {
+    console.log(err);
+  }
+})();
