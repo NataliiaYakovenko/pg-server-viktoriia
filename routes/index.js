@@ -1,14 +1,11 @@
 const { Router } = require('express');
 const usersRouter = require('./usersRouter');
+const phonesRouter = require('./phonesRouter');
 
 const router = Router();
 
 router.use('/users', usersRouter);
+router.use('/phones', phonesRouter);
 
-router.post('/phones', () => {});
-router.get('/phones', () => {});
-router.get('/phones/:id', (req, res) => {});
-router.patch('/phones/:id', (req, res) => {});
-router.delete('/phones/:id', (req, res) => {});
 
 module.exports = router;
