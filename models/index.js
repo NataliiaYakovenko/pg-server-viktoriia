@@ -12,6 +12,12 @@ const connecrionOptions = {
 
 const pool = new Pool(connecrionOptions);
 
+pool.connect((err) => {
+  if (!err) {
+    console.log('DB connection OK');
+  }
+});
+
 process.on('beforeExit', () => pool.end());
 
 User.pool = pool;
