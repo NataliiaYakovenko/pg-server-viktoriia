@@ -10,7 +10,10 @@ class User {
       const createdUser = await User.pool.query(insertQuery); // виконати його
       return createdUser.rows[0]; // повернути результат
     } catch (err) {
-      console.log('err :>> ', err); // або помилку
+      //console.log('err :>> ', err); // або помилку
+      throw new Error(err.detail)
+
+
     }
   }
   static async getAll({ limit, offset }) {

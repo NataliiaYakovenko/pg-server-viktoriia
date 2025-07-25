@@ -1,4 +1,27 @@
 GET http://localhost:5000/api/users/12
 
-
+//404
 GET http://localhost:5000/api/users/100
+
+
+//201 {}
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "firstName": "Roll",
+    "lastName": "Rollovich",
+    "email": "roll@gmail.com",
+    "tel": "+380883456227"
+}
+
+//422 {}
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "firstName": "Roll",
+    "lastName": "Rollovich",
+    "email": "roll@gmail.com",
+    "tel": "+380983456789"
+}

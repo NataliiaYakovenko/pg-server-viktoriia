@@ -6,7 +6,7 @@ const usersRouter = Router();
 
 usersRouter
   .route('/')
-  .post(userControlers.creareUser)
+  .post(userControlers.createUser)
   .get(userControlers.getAllUsers);
 
 usersRouter
