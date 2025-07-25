@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { userControlers } = require('./../controllers');
-const { validation } = require('../middleware');
+const { validation, pagination } = require('../middleware');
 console.log('userControlers=>>', userControlers);
 
 const usersRouter = Router();
@@ -8,7 +8,7 @@ const usersRouter = Router();
 usersRouter
   .route('/')
   .post(validation.validationUserOnCreat, userControlers.createUser)
-  .get(userControlers.getAllUsers);
+  .get(pagination.paginateUser, userControlers.getAllUsers);
 
 usersRouter
   .route('/:id')

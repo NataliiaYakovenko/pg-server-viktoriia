@@ -1,3 +1,4 @@
+const { pagination } = require('../middleware');
 const { User } = require('./../models');
 
 module.exports.createUser = async (req, res) => {
@@ -16,9 +17,9 @@ module.exports.createUser = async (req, res) => {
 };
 
 module.exports.getAllUsers = async (req, res) => {
-
+  const { pagination } = req;
   try {
-    const foundUsers = await User.getAll({ limit: 10, offset: 0 });
+    const foundUsers = await User.getAll(pagination);
     res.status(200).send(foundUsers);
   } catch (err) {
     res.status(500).send('Server Error');
