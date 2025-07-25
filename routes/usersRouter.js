@@ -1,12 +1,13 @@
 const { Router } = require('express');
 const { userControlers } = require('./../controllers');
+const { validation } = require('../middleware');
 console.log('userControlers=>>', userControlers);
 
 const usersRouter = Router();
 
 usersRouter
   .route('/')
-  .post(userControlers.createUser)
+  .post(validation.validationUserOnCreat, userControlers.createUser)
   .get(userControlers.getAllUsers);
 
 usersRouter

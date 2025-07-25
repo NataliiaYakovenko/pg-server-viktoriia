@@ -12,7 +12,7 @@ Content-Type: application/json
     "firstName": "Roll",
     "lastName": "Rollovich",
     "email": "roll@gmail.com",
-    "tel": "+380883456227"
+    "tel": "+380888456887"
 }
 
 //422 {}
@@ -23,7 +23,7 @@ Content-Type: application/json
     "firstName": "Roll",
     "lastName": "Rollovich",
     "email": "roll@gmail.com",
-    "tel": "+380983456789"
+    "tel": "+38098345670"
 }
 
 
