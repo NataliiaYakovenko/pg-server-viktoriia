@@ -25,3 +25,6 @@ Content-Type: application/json
     "email": "roll@gmail.com",
     "tel": "+380983456789"
 }
+
+
+GET http://localhost:5000/api/users

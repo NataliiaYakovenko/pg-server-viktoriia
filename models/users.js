@@ -11,9 +11,7 @@ class User {
       return createdUser.rows[0]; // повернути результат
     } catch (err) {
       //console.log('err :>> ', err); // або помилку
-      throw new Error(err.detail)
-
-
+      throw new Error(err.detail);
     }
   }
   static async getAll({ limit, offset }) {
@@ -21,12 +19,14 @@ class User {
       const selectAllQuery = `
         SELECT *
         FROM users
+        ORDER BY id
         LIMIT ${limit} OFFSET ${offset}
       `;
       const foundUsers = await User.pool.query(selectAllQuery);
       return foundUsers.rows;
     } catch (err) {
-      console.log('err :>> ', err);
+      //console.log('err :>> ', err);
+      throw new Error(err.detail);
     }
   }
   static async getById(id) {

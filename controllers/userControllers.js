@@ -15,8 +15,14 @@ module.exports.createUser = async (req, res) => {
   }
 };
 
-module.exports.getAllUsers = (req, res) => {
-  res.send('OK');
+module.exports.getAllUsers = async (req, res) => {
+
+  try {
+    const foundUsers = await User.getAll({ limit: 10, offset: 0 });
+    res.status(200).send(foundUsers);
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
 };
 
 module.exports.getByIdUser = async (req, res) => {
