@@ -1,5 +1,5 @@
 class User {
-  static async create ({ firstName, lastName, email, tel }) {
+  static async create({ firstName, lastName, email, tel }) {
     try {
       // сформувати запит
       const insertQuery = `
@@ -13,7 +13,7 @@ class User {
       console.log('err :>> ', err); // або помилку
     }
   }
-  static async getAll ({ limit, offset }) {
+  static async getAll({ limit, offset }) {
     try {
       const selectAllQuery = `
         SELECT *
@@ -26,12 +26,12 @@ class User {
       console.log('err :>> ', err);
     }
   }
-  static async getById (id) {
+  static async getById(id) {
     try {
       const selectQuery = `
         SELECT *
         FROM users
-        WHERE ${id}
+        WHERE id = ${id}
       `;
       const foundUser = await User.pool.query(selectQuery);
       return foundUser.rows[0];
@@ -39,7 +39,7 @@ class User {
       console.log('err :>> ', err);
     }
   }
-  static async updateById (id, { firstName, lastName, email, tel }) {
+  static async updateById(id, { firstName, lastName, email, tel }) {
     try {
       const updateQuery = `
         UPDATE users
@@ -47,7 +47,7 @@ class User {
             last_name = ${lastName}, 
             email = ${email}, 
             tel = ${tel}
-        WHERE ${id}
+        WHERE id = ${id}
         RETURNING *
       `;
       const updatedUser = await User.pool.query(updateQuery);
@@ -56,12 +56,12 @@ class User {
       console.log('err :>> ', err);
     }
   }
-  static async deleteById (id) {
+  static async deleteById(id) {
     try {
       const deleteQuery = `
         DELETE
         FROM users
-        WHERE ${id}
+        WHERE id = ${id}
         RETURNING *
       `;
       const deletedUser = await User.pool.query(deleteQuery);
@@ -73,4 +73,3 @@ class User {
 }
 
 module.exports = User;
-
