@@ -58,4 +58,17 @@ module.exports.updateByIdUser = async (req, res) => {
   }
 };
 
-module.exports.deleteByIdUser = (req, res) => {};
+module.exports.deleteByIdUser = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deletedUser = await User.deleteById(id);
+
+    if (!deletedUser) {
+      res.status(404).send('User not found');
+    }
+    res.status(200).send(deletedUser);
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+};

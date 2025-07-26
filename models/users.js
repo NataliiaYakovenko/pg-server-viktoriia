@@ -14,6 +14,7 @@ class User {
       throw new Error(err.detail);
     }
   }
+  
   static async getAll({ limit, offset }) {
     try {
       const selectAllQuery = `
@@ -29,6 +30,7 @@ class User {
       throw new Error(err.detail);
     }
   }
+
   static async getById(id) {
     try {
       const selectQuery = `
@@ -43,6 +45,7 @@ class User {
       throw new Error(err.detail);
     }
   }
+
   static async updateById(id, { firstName, lastName, email, tel }) {
     try {
       const updateQuery = `
@@ -62,6 +65,7 @@ class User {
       throw new Error(err.detail);
     }
   }
+
   static async deleteById(id) {
     try {
       const deleteQuery = `

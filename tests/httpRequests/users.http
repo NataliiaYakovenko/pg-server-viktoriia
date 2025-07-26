@@ -50,3 +50,5 @@ Content-Type: application/json
     "email": "bengmail.com",
     "tel": "+380992117745"
 }
+
+DELETE http://localhost:5000/api/users/10
