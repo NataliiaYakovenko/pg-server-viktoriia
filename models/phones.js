@@ -10,7 +10,7 @@ class Phone {
       const foundPhones = await Phone.pool.query(selectAllQuery);
       return foundPhones.rows;
     } catch (err) {
-      //console.log('err :>> ', err);
+      console.log('err :>> ', err);
       throw new Error(err.detail);
     }
   }
