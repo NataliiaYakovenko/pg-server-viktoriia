@@ -28,3 +28,25 @@ Content-Type: application/json
 
 
 GET http://localhost:5000/api/users?page=2&results=5
+
+//200
+PATCH http://localhost:5000/api/users/1
+Content-Type: application/json
+
+{
+    "firstName": "Ben",
+    "lastName": "Aflek",
+    "email": "ben@gmail.com",
+    "tel": "+380982116645"
+}
+
+//422
+PATCH http://localhost:5000/api/users/1
+Content-Type: application/json
+
+{
+    "firstName": "Ben",
+    "lastName": "Aflek",
+    "email": "bengmail.com",
+    "tel": "+380992117745"
+}
