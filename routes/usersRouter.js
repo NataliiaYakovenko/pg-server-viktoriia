@@ -1,19 +1,19 @@
 const { Router } = require('express');
-const { userControlers } = require('./../controllers');
+const { userControllers } = require('./../controllers');
 const { validation, pagination } = require('../middleware');
-console.log('userControlers=>>', userControlers);
+console.log('userControllers=>>', userControllers);
 
 const usersRouter = Router();
 
 usersRouter
   .route('/')
-  .post(validation.validationUserOnCreat, userControlers.createUser)
-  .get(pagination.paginateUser, userControlers.getAllUsers);
+  .post(validation.validationUserOnCreat, userControllers.createUser)
+  .get(pagination.paginateUser, userControllers.getAllUsers);
 
 usersRouter
   .route('/:id')
-  .get(userControlers.getByIdUser)
-  .patch(validation.validationUserOnUpdate,userControlers.updateByIdUser)
-  .delete(userControlers.deleteByIdUser);
+  .get(userControllers.getByIdUser)
+  .patch(validation.validationUserOnUpdate, userControllers.updateByIdUser)
+  .delete(userControllers.deleteByIdUser);
 
 module.exports = usersRouter;

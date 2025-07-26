@@ -34,7 +34,7 @@ PATCH http://localhost:5000/api/users/1
 Content-Type: application/json
 
 {
-    "firstName": "Ben",
+    "firstName": "Yan",
     "lastName": "Aflek",
     "email": "ben@gmail.com",
     "tel": "+380982116645"
