@@ -52,3 +52,6 @@ Content-Type: application/json
 }
 
 DELETE http://localhost:5000/api/users/10
+
+
+GET http://localhost:5000/api/users/2/phones?brand=Samsung&startDate=2022-01-01&endDate=2023-12-31

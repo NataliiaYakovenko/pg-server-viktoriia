@@ -14,7 +14,7 @@ class User {
       throw new Error(err.detail);
     }
   }
-  
+
   static async getAll({ limit, offset }) {
     try {
       const selectAllQuery = `
@@ -42,6 +42,25 @@ class User {
       return foundUser.rows[0];
     } catch (err) {
       //console.log('err :>> ', err);
+      throw new Error(err.detail);
+    }
+  }
+
+  static async getUserPhones(id,brand, startDate, endDate) {
+    try {
+      const selectQuery = `
+          SELECT *
+          FROM users_to_phones
+          WHERE u_id = $1
+                AND brand = $2
+                AND created_at >= $3
+                AND created_at <= $4
+    `;
+      const values = [id, brand, startDate, endDate];
+      const foundUser = await User.pool.query(selectQuery, values);
+      return foundUser.rows;
+    } catch (err) {
+      // console.log('err :>> ', err);
       throw new Error(err.detail);
     }
   }
@@ -77,7 +96,8 @@ class User {
       const deletedUser = await User.pool.query(deleteQuery);
       return deletedUser.rows[0];
     } catch (err) {
-      console.log('err :>> ', err);
+      // console.log('err :>> ', err);
+      throw new Error(err.detail);
     }
   }
 }

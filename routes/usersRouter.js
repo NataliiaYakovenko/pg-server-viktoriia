@@ -16,4 +16,8 @@ usersRouter
   .patch(validation.validationUserOnUpdate, userControllers.updateByIdUser)
   .delete(userControllers.deleteByIdUser);
 
+usersRouter
+  .route('/:id/phones')
+  .get(userControllers.getUserAllPhones);
+
 module.exports = usersRouter;

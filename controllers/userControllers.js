@@ -41,6 +41,23 @@ module.exports.getByIdUser = async (req, res) => {
   }
 };
 
+module.exports.getUserAllPhones = async (req, res) => {
+  const { id } = req.params;
+  const { brand, startDate, endDate } = req.query;
+
+  try {
+    const foundUser = await User.getUserPhones(id, brand, startDate, endDate );
+
+    if (!foundUser) {
+      return res.status(404).send('User not found');
+    }
+    res.status(200).send(foundUser);
+  } catch (err) {
+    console.log('err=>', err);
+    res.status(500).send('Server Error');
+  }
+};
+
 module.exports.updateByIdUser = async (req, res) => {
   const { id } = req.params;
   const { body } = req;
