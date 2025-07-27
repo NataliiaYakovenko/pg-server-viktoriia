@@ -11,7 +11,7 @@ module.exports.createUser = async (req, res) => {
     }
     res.status(201).send(createdUser);
   } catch (err) {
-    console.log('err=>>', err);
+    // console.log('err=>>', err);
     res.status(500).send('Server Error');
   }
 };
@@ -53,7 +53,7 @@ module.exports.getUserAllPhones = async (req, res) => {
     }
     res.status(200).send(foundUser);
   } catch (err) {
-    console.log('err=>', err);
+    // console.log('err=>', err);
     res.status(500).send('Server Error');
   }
 };
@@ -70,7 +70,7 @@ module.exports.updateByIdUser = async (req, res) => {
     }
     res.status(200).send(updatedUser);
   } catch (err) {
-    console.log('err=>', err);
+    // console.log('err=>', err);
     res.status(500).send('Server Error');
   }
 };
